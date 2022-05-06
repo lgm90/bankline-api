@@ -8,14 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity	
+@Entity
 @Table(name = "tab_correntista")
 public class Correntista {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(length = 20)
 	
+	@Column(length = 20)
 	private String cpf;
 	
 	@Column(length = 60)
@@ -24,7 +24,13 @@ public class Correntista {
 	@Embedded
 	private Conta conta;
 	
-public Integer getId() {
+	public Conta getConta() {
+		return conta;
+	}
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
@@ -42,10 +48,6 @@ public Integer getId() {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Conta getConta() {
-		return conta;
-	}
-	public void setConta(Conta conta) {
-		this.conta = conta;
-	}
+	
+	
 }
